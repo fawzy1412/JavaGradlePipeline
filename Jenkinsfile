@@ -2,7 +2,7 @@ pipeline {
     agent any
    
     stages {
-        stage('Example1') {
+        stage('Sonarqube Check Quality') {
             steps {
 
                 script{
@@ -10,8 +10,6 @@ pipeline {
                     sh 'chmod +x gradlew'
                     sh './gradlew sonarqube'
                 }
-
-
                 }
                 
             }

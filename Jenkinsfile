@@ -4,10 +4,16 @@ pipeline {
     stages {
         stage('Example1') {
             steps {
-                withSonarQubeEnv(credentialsId: 'sonar-token') {
-                sh 'chmod +x gradlew'
-                sh './gradlew sonarqube'
-            }
+
+                script{
+                    withSonarQubeEnv(credentialsId: 'sonar-token') {
+                    sh 'chmod +x gradlew'
+                    sh './gradlew sonarqube'
+                }
+
+
+                }
+                
             }
         }
 

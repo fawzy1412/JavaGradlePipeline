@@ -4,7 +4,10 @@ pipeline {
     stages {
         stage('Example1') {
             steps {
-                echo 'Hello World'
+                withSonarQubeEnv(credentialsId: 'sonar-token') {
+                sh 'chmod +x gradlew'
+                sh './gradlew sonarqube'
+            }
             }
         }
 
